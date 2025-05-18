@@ -1,22 +1,36 @@
 import pygame
 import sys
 
+# init pygame
 pygame.init()
 
-# Set up display
-width, height = 600, 400
-screen = pygame.display.set_mode((width, height))
+# Screen Size
+WIDTH, HEIGHT = 600, 400
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+
+# Title
 pygame.display.set_caption("Snake Game")
 
+# Clock
+clock = pygame.time.Clock()
+
 # Main game loop
-running = True
-while running:
+runing = True
+while runing : 
+    # Event handling
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            runing = False
 
-    screen.fill((0, 0, 0))  # Fill the screen with black
-    pygame.display.flip()   # Update the display
+    # Fill screen with background color (e.g., black)
+    screen.fill((0, 0, 0))
 
+    # Update display
+    pygame.display.flip()
+
+    # Limit FPS
+    clock.tick(10)
+
+# Quit Pygame
 pygame.quit()
 sys.exit()
